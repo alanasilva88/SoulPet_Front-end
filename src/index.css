@@ -1,0 +1,19 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+.header {
+    background-color: #3b2712;
+}
+
+.header nav img {
+    width: 70px;
+    height: 70px;
+}
+
+.header nav a {
+    color: #a69e69;
+    text-decoration: none;
+}
+
+.header nav a:hover {
+    color: #ded7d1;
+}
