@@ -45,7 +45,6 @@ function Pets() {
             <th>Tipo</th>
             <th>Porte</th>
             <th>Data Nascimento</th>
-            <th>Cliente</th>
           </tr>
         </thead>
         <tbody>
@@ -56,7 +55,6 @@ function Pets() {
                 <td>{pet.tipo}</td>
                 <td>{pet.porte}</td>
                 <td>{pet.dataNasc}</td>
-                <td>{pet.clienteId}</td>
                 <td>
                     <Button className= "m-1" variant="danger" size="sm" onClick={() => deletarPet(pet.id)}>
                       Excluir
