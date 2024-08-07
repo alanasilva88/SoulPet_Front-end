@@ -9,7 +9,6 @@ export async function getPets() {
 
 export async function addPets(data) {
     // O segundo parâmetro do post é o corpo da requisição
-    if(data.dataNasc === "") data.dataNasc = null
     const response = await axios.post("http://localhost:3000/pets", data);
     return response.data;
 }

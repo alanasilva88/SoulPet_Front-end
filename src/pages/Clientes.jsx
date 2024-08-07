@@ -4,6 +4,8 @@ import { deleteCliente, getClientes } from "../api/clientes";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import toast from "react-hot-toast";
+import { FaTrash, FaEdit } from 'react-icons/fa';
+
 
 function Clientes() {
   const [clientes, setClientes] = useState(null);
@@ -56,18 +58,18 @@ function Clientes() {
                 <td>{cliente.email}</td>
                 <td>{cliente.telefone}</td>
                 <td>
-                    <Button className= "m-1" variant="danger" size="sm" onClick={() => deletarCliente(cliente.id)}>
-                      Excluir
+                    <Button className= "m-1" variant="outline-danger" size="sm" onClick={() => deletarCliente(cliente.id)}>
+                      <FaTrash />
                     </Button>
-                    <Button className= "m-1" size="sm" as={Link} to={`/clientes/editar/${cliente.id}`}>
-                      Editar
+                    <Button className= "m-1" variant="outline-primary" size="sm" as={Link} to={`/clientes/editar/${cliente.id}`}>
+                      <FaEdit />
                     </Button>
                 </td>
               </tr>
             )
           })}
         </tbody>
-      </Table>: <Loader/>}
+      </Table> : <Loader/>}
     </main>
   );
 }

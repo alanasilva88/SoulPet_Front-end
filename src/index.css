@@ -1,7 +1,12 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
+html {
+    background-color: #3b2712;
+}
+
 .header {
     background-color: #3b2712;
+    padding: 10px; /* Adicionei padding para melhor espaçamento */
 }
 
 .header nav img {
@@ -16,4 +21,13 @@
 
 .header nav a:hover {
     color: #ded7d1;
+}
+
+/* Responsividade com Bootstrap */
+
+@media (max-width: 768px) {
+    .header nav img {
+        width: 50px; /* Reduzindo o tamanho do logo para telas menores */
+        height: 50px;
+    }
 }

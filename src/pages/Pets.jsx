@@ -4,13 +4,14 @@ import Loader from "../components/Loader";
 import { getPets, deletePets } from "../api/pets";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { FaTrash, FaEdit } from 'react-icons/fa';
 
 
 
 function Pets() {
-  const [pets, setPets] = useState(null);
+  const [pets, setPets] = useState(null); // null representa que hainda não há pets adicionados
 
-  function carregarPets() { // Aqui chegará os dados do back e serão exibidos
+  function carregarPets() { // Aqui chegará os "dados" ou a "resposta" do back e serão exibidos
     getPets().then((dados) => {
       setPets(dados);
     });
@@ -45,6 +46,8 @@ function Pets() {
             <th>Tipo</th>
             <th>Porte</th>
             <th>Data Nascimento</th>
+            <th>Tutor(a)</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -54,20 +57,22 @@ function Pets() {
                 <td>{pet.nome}</td>
                 <td>{pet.tipo}</td>
                 <td>{pet.porte}</td>
-                <td>{pet.dataNasc}</td>
+                <td>{pet.dataNasc ? new Date(pet.dataNasc+"T00:00:00").toLocaleDateString() : "-"}</td> 
+                <td>{pet.cliente.nome}</td>
+                 {/* por conta do fuso-horário é necessário incluir as horas em T00:00:00 para assim ficar a data correta */}
                 <td>
-                    <Button className= "m-1" variant="danger" size="sm" onClick={() => deletarPet(pet.id)}>
-                      Excluir
+                    <Button className= "m-1" variant="outline-danger" size="sm" onClick={() => deletarPet(pet.id)}> 
+                      <FaTrash />                
                     </Button>
-                    <Button className= "m-1" size="sm" as={Link} to={`/pets/editar/${pet.id}`}>
-                      Editar
+                    <Button className= "m-1" variant="outline-primary" size="sm" as={Link} to={`/pets/editar/${pet.id}`}>
+                      <FaEdit />
                     </Button>
                 </td>
               </tr>
             )
           })}
         </tbody>
-      </Table>: <Loader/>}
+      </Table> : <Loader/>}
     </main>
   );
 }
