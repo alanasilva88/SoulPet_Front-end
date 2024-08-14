@@ -4,7 +4,7 @@ import Loader from "../components/Loader";
 import { getPets, deletePets } from "../api/pets";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash, FaEdit, FaPlus } from 'react-icons/fa';
 
 
 
@@ -36,7 +36,7 @@ function Pets() {
     <main className="mt-4 container">
       <h1>Pets</h1>
       <Button as={Link} to="/pets/novo">
-        Adicionar Pet
+        <FaPlus />
       </Button>
       <hr />
       {pets ? <Table>

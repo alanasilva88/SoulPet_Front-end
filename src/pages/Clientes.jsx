@@ -4,7 +4,7 @@ import { deleteCliente, getClientes } from "../api/clientes";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import toast from "react-hot-toast";
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash, FaEdit, FaPlus } from 'react-icons/fa';
 
 
 function Clientes() {
@@ -38,7 +38,7 @@ function Clientes() {
     <main className="mt-4 container">
       <h1>Clientes</h1>
       <Button as={Link} to="/clientes/novo">
-        Adicionar Cliente
+        <FaPlus />
       </Button>
       <hr />
       {clientes ? <Table>
